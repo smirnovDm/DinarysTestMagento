@@ -13,6 +13,7 @@ class ControllerUser extends Controller
     public function actionSaveUser()
     {
         $input = filter_input_array(INPUT_POST);
+
         $password = password_hash($input['pass'], PASSWORD_DEFAULT);
         $users = $this->model->getUsers();
 
@@ -22,9 +23,10 @@ class ControllerUser extends Controller
             } else if ($input['username'] == $value->username) {
                 $msg = 'Username already exists! Please try again!';
             } else {
-                $this->model->saveUser($input['email'], $password, $input['username']);
+
             }
         }
+        $this->model->saveUser($input['email'], $password, $input['username']);
     echo $msg;
     }
 

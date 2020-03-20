@@ -7,7 +7,16 @@
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
 
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+    }
     /*==================================================================
     [ Validate ] SIGN_IN */
     var input = $('.validate-input .input100');
@@ -132,6 +141,7 @@
 
     /*INDEX_MAIN_VIEW*/
     $(".log_out").click(function () {
+        deleteAllCookies();
         window.location.replace("/logout");
     });
 

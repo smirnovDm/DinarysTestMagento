@@ -1,6 +1,12 @@
 (function ($) {
 
     "use strict";
+
+    let ul_list = $(".project_item").length;
+    if(!ul_list){
+        $(".projects_list").text('There are no projects here, please create one!');
+    }
+
     function getCookie(name) {
         let matches = document.cookie.match(new RegExp(
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -177,13 +183,14 @@
    });
 
 
-    $(".save_project").click(function () {
+
+   $(document).on('click', '.save_project', function () {
        var user_id = getCookie('user_id');
        var name = $("input[name='project_name']").val();
        var description = $("textarea[name='description']").val();
 
        if(!name || !description){
-            alert('Please, fill the creating form!');
+           alert('Please, fill the creating form!');
        } else {
            $.ajax({
                type: "POST",
@@ -195,13 +202,14 @@
                        type: "GET",
                        url: '/show_all_projects',
                        success: function (data) {
+                           console.log(data);
                            $(".projects_list").html(data);
                        }
                    });
                }
            });
        }
-    });
+   });
 
 
     $(document).on('click', '.delete_project', function () {
@@ -221,7 +229,6 @@
                             type: "GET",
                             url: '/show_all_projects',
                             success: function (data) {
-                                console.log(data);
                                 $(".open_project-btn").css('display', 'none');
                                 $(".projects_list").html(data);
                             }

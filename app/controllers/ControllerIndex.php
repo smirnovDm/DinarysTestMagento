@@ -12,12 +12,12 @@ class ControllerIndex extends Controller
     }
     public function actionIndex(){
 
-        if(!isset($_COOKIE['PHPSESSID']) || !isset($_COOKIE['user_id'])){
+        if(!isset($_COOKIE['PHPSESSID']) && empty($_COOKIE['PHPSESSID']) || !isset($_COOKIE['user_id'])){
             header('Location:'.$_SERVER['REQUEST_URI'].'sign_in');
         }
 
-        $projects = $this->model->getProjects();
         $user = $this->model->getUserById($_COOKIE['user_id']);
+        $projects = $this->model->getProjects();
         $this->view->username = $user->username;
         $this->view->user_id = $user->id;
         $this->view->projects =  $projects;

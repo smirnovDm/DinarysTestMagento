@@ -13,7 +13,6 @@ class ControllerUser extends Controller
     public function actionSaveUser()
     {
         $input = filter_input_array(INPUT_POST);
-
         $password = password_hash($input['pass'], PASSWORD_DEFAULT);
         $users = $this->model->getUsers();
 

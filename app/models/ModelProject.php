@@ -24,8 +24,8 @@ class ModelProject extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
+
     public function getProjects(){
     $query = "SELECT * FROM projects;";
     $result = $this->db->query($query);
@@ -50,7 +50,6 @@ class ModelProject extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
 
     public function getProjectById($id){
@@ -68,7 +67,6 @@ class ModelProject extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
 
 }

@@ -39,7 +39,6 @@ class ModelTask extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
     public function deleteTasksById($id){
         $query = "DELETE FROM `tasks` where project_id = $id;";
@@ -47,7 +46,6 @@ class ModelTask extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
     public function addTask($name, $priority, $done, $deadline, $project_id, $user_id){
         $query = "INSERT INTO `tasks` (`id`, `name`, `priority`, `done`, `deadline`, `project_id`, `user_id`) VALUES (NULL, '$name', '$priority', '$done', '$deadline', '$project_id', '$user_id');";
@@ -55,7 +53,6 @@ class ModelTask extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
     public function deleteTaskById($id){
         $query = "DELETE FROM `tasks` WHERE `tasks`.`id` = $id;";
@@ -63,7 +60,6 @@ class ModelTask extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
     public function getTaskById($id){
         $query  = "SELECT * FROM `tasks` where id = $id;";
@@ -79,7 +75,6 @@ class ModelTask extends Model
         if(!$result->execute()){
             return $result->errorInfo();
         }
-        return true;
     }
 
 }

@@ -2,8 +2,9 @@
     <div class="container-projects">
         <div class="header_projects"><h2 class="panel-title">Projects<span class="add_project"> <i class="far fa-plus-square"></i></h2></span></div>
         <div class="main_list_projects">
-            <?php if(!empty($this->projects)): ?>
+<!--            --><?php //if(!empty($this->projects)): ?>
             <ul class="projects_list">
+                            <p></p>
                 <?php foreach ($this->projects as $value): ?>
                 <li class="project_item" id='<?=$value->id?>'>
                     <span><?= $value->name ?></span>
@@ -16,9 +17,9 @@
                 </li>
                 <?php endforeach; ?>
             </ul>
-            <?php else: ?>
-            <p>there is no projects! please create one..</p>
-            <?php endif; ?>
+<!--            --><?php //else: ?>
+
+<!--            --><?php //endif; ?>
         </div>
         <div class="footer_projects">
             <span>
@@ -53,7 +54,7 @@
                 </header>
 
                     <label>Project name</label>
-                    <input class="w3-input" type="text" name="project_name">
+                    <input class="w3-input" type="text" name="project_name" maxlength="60" autocomplete="off">
 
                     <label>Project description</label>
                     <textarea class="w3-input" rows="10" name="description"></textarea>
@@ -74,7 +75,7 @@
             </header>
 
             <label>Project name</label>
-            <input class="w3-input" type="text" name="project_name_update">
+            <input class="w3-input" type="text" name="project_name_update" maxlength="60" autocomplete="off">
 
             <label>Project description</label>
             <textarea class="w3-input" rows="10" name="description_update"></textarea>
@@ -98,7 +99,7 @@
 
 
                     <label>Task title</label>
-                    <input class="w3-input" type="text" name="task_name">
+                    <input class="w3-input" type="text" name="task_name" maxlength="70" autocomplete="off">
 
                     <label>Task priority</label>
                 <select class="w3-select" name="task_priority">
@@ -136,7 +137,7 @@
 
 
                 <label>Task title</label>
-                <input class="w3-input" type="text" name="task_name_edit">
+                <input class="w3-input" type="text" name="task_name_edit" maxlength="70" autocomplete="off">
 
                 <label>Task priority</label>
                 <select class="w3-select" name="task_priority_edit">

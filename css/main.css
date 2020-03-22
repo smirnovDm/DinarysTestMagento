@@ -492,6 +492,7 @@ input.input100 {
   padding: 0;
   overflow: hidden;
   overflow-y: scroll;
+  overflow-x: scroll;
   height: 480px;
 }
 .panel .panel-content .task {
@@ -599,6 +600,7 @@ input.input100 {
   height: 480px;
   overflow: hidden;
   overflow-y: scroll;
+  overflow-x: scroll;
 }
 .footer_projects{
   position: relative;
